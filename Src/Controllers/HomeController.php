@@ -8,6 +8,6 @@ class HomeController extends Controller
     {
 
 
-        echo "home";
+        $this->render('home/index', []);
     }
 }

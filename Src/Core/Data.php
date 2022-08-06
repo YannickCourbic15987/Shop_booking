@@ -29,7 +29,7 @@ class Data extends PDO
 
             parent::__construct($dsn, self::USERNAME, self::PASSWORD);
             // qu'a chaque fois que je ferais un fetch / fecthall , sera associée à un tableau
-            $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             //pour définir le mode de transfert d'erreur , errmode , cela permet de déclencher une execpt quand il ya une exception
             $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
