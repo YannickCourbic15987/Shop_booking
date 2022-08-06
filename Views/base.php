@@ -22,7 +22,10 @@
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a href="register" class="nav-link active">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="sign">Se Connecter</a>
                     </li>
                 </ul>
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Core;
+namespace App\Src\Core;
 
 class Form
 {
@@ -163,7 +163,7 @@ class Form
     {
         $this->formCode .= "<button ";
         $this->formCode .=  $attributs ? $this->addAttribut($attributs) . '>' : '>';
-        $this->formCode .= " " . $texte . " " . "</button>";
+        $this->formCode .= $texte . "</button>";
         return $this;
     }
 }
