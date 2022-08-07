@@ -4,8 +4,8 @@ namespace App\Src\Controllers;
 
 abstract class Controller
 {
-    protected $templates = 'base';
-    public function render(string $fichier, array $donnees = [])
+
+    public function render(string $fichier, array $donnees = [], $templates = 'base')
     {
         // on extrait le contenu des contenues 
 
@@ -26,6 +26,6 @@ abstract class Controller
         //transfére le buffer dans $contains 
         $contains = ob_get_clean();
         //Template de page
-        require_once ROOT . '/Views/' . $this->templates  . '.php';
+        require_once ROOT . '/Views/' . $templates  . '.php';
     }
 }

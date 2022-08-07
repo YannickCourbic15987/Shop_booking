@@ -95,7 +95,7 @@ class Form
 
         //! on va crée la balise form 
 
-        $this->formCode .= "<form action='$action'  methode='$methode' ";
+        $this->formCode .= "<form action='$action'  methode='$methode'";
         // on ajoute les attributs éventuel
         // si il existe alors on ajoute $attributs à formcode via la function addatribut
 
@@ -123,10 +123,10 @@ class Form
     public function  addlabel(string $for, string $txt, array $attributs = []): self
     {    // on ouvre la balise 
         $this->formCode .= "<label for='$for'";
-        $this->formCode .= $attributs ? $this->addAttribut($attributs) . '>' : '>';
+        $this->formCode .= $attributs ? $this->addAttribut($attributs) : '';
         //on ajoute le code 
-        $this->formCode .= " " . $txt . " ";
-        $this->formCode .= "</label>";
+
+        $this->formCode .= ">$txt</label>";
         return $this;
     }
 

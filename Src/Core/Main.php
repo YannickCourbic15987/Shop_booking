@@ -7,7 +7,11 @@ use App\Src\Controllers\HomeController;
 class Main
 {
     public function start()
-    {
+    {    //on démarre la session 
+        session_start();
+
+
+
 
 
         //http//mes-annonces.test/controleur/methode/paramètre 

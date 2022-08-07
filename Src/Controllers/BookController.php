@@ -3,7 +3,6 @@
 namespace App\Src\Controllers;
 
 use App\Src\Model\BookModel;
-use App\Src\Model\UsersModel;
 
 class BookController extends Controller
 {

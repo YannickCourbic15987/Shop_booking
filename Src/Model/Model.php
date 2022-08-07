@@ -75,7 +75,7 @@ abstract class Model extends Data
         return $query->fetch();
     }
 
-    public function findOneByEmail(string $email)
+    public function findOneByEmail($email)
     {
         $query = $this->queryBuild("SELECT * FROM $this->table WHERE email = ? ", [$email]);
         return $query->fetch();

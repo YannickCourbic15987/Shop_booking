@@ -16,7 +16,8 @@ class UsersModel extends Model
 
     public function __construct()
     {
-        $this->table = 'users';
+        $class = str_replace(__NAMESPACE__ . '\\', '', __CLASS__);
+        $this->table = strtolower(str_replace('Model', '', $class));
     }
 
     /**
@@ -125,5 +126,17 @@ class UsersModel extends Model
         $this->role = $role;
 
         return $this;
+    }
+    /**
+     * crée la session de l'utilisation 
+     */
+
+    public function setSession(): void
+    {
+        $_SESSION['user'] = [
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'email' => $this->email,
+        ];
     }
 }
