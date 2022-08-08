@@ -2,25 +2,19 @@
 
 namespace App\Src\Controllers;
 
-use App\Src\Model\UsersModel;
 
-class AdminController extends Controller
+
+class AdminAddBookController extends Controller
 {
     public function index()
     {
 
         if ($this->isAdmin()) {
-            $user = new UsersModel;
-            $users = $user->findAll();
-            $this->render('admin/index', [
-                'users' => $users
-            ]);
+            $this->render('admin/addBook');
         } else {
             header('Location: home');
         }
     }
-
-
     private function isAdmin()
     {
         // on vérifie si on est connecté et si "admin" est dans nos rôles
