@@ -19,46 +19,68 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['email'])) : ?>
-                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="book">Livres</a>
+                    </li>
+                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['email'])) : ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="book">Livres</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="users">
+                            <a class="nav-link active" href="sign">
                                 <i class="fa-solid fa-circle text-success"></i>
                                 Profil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="logout">Déconnexion</a>
-                        </li>
 
-                    </ul>
-                <?php else : ?>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="register" class="nav-link active">Inscription</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" href="book">Livres</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="sign">
-                                <i class="fa-solid fa-circle text-danger mr-2"></i>
-                                Se Connecter</a>
-                        </li>
+                        <li class="nav-item ">
+                            <form action="sign" method="POST">
+                                <button class="btn btn-danger " name="logout" value="deconnexion">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
 
-                    </ul>
+                                </button>
+
+                            </form>
+                        </li>
+                </ul>
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') : ?>
+
+                    <div class="col-8"></div>
+
+                    <div class=" col-2 ">
+
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link active " href="admin">
+                                    <i class="fa-solid fa-lock text-danger"></i>
+                                    administrateur</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
                 <?php endif; ?>
+
+
+
+            <?php else : ?>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a href="register" class="nav-link active">Inscription</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="sign">
+                            <i class="fa-solid fa-circle text-danger mr-2"></i>
+                            Se Connecter</a>
+                    </li>
+
+                </ul>
+            <?php endif; ?>
 
             </div>
         </div>

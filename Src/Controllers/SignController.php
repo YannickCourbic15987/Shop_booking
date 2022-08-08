@@ -10,6 +10,8 @@ class SignController extends Controller
 {
     public function index()
     {     //on vérifie si le formulaire est complet 
+
+
         $form = new Form;
         $form
             ->addlabel('email', 'Votre email', ['class' => 'form-label'])
@@ -42,18 +44,18 @@ class SignController extends Controller
             if (password_verify($_POST['password'], $users->getPassword())) {
                 //le mot de passe est bon 
                 $user->setSession();
+                // header('location : /home');
             } else {
                 //mauvais mot de passe 
                 $_SESSION['erreur'] = "l'adresse e-mail et/ou le mot de passe est incorrect";
             };
+        } else {
+            if (isset($_POST['logout'])) {
+                session_unset();
+            }
         }
 
         // $this->render('annonce/index', compact('annonce'));
         $this->render('sign/index', ['form' => $form->create()]);
-    }
-
-    public function profil()
-    {
-        $this->render('sign/profil');
     }
 }

@@ -6,7 +6,7 @@ use App\Src\Model\Model;
 
 class UsersModel extends Model
 {
-
+    protected int $id_user;
     protected $firstname;
     protected $lastname;
     protected $email;
@@ -113,7 +113,7 @@ class UsersModel extends Model
     /**
      * Get the value of role
      */
-    public function getRole()
+    public function getRole(): string
     {
         return $this->role;
     }
@@ -134,9 +134,29 @@ class UsersModel extends Model
     public function setSession(): void
     {
         $_SESSION['user'] = [
+
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'email' => $this->email,
+            'role' => $this->role
         ];
+    }
+
+    /**
+     * Get the value of id_user
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * Set the value of id_user
+     */
+    public function setIdUser($id_user): self
+    {
+        $this->id_user = $id_user;
+
+        return $this;
     }
 }

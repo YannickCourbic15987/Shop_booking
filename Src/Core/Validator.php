@@ -51,7 +51,7 @@ class Validator
 
     public function validEmail(): bool
     {
-        if (!empty($this->filtredData) && filter_var($this->filtredData['email'], FILTER_VALIDATE_EMAIL) !== false) {
+        if (!empty($this->filtredData['email']) && filter_var($this->filtredData['email'], FILTER_VALIDATE_EMAIL) !== false) {
             return true;
         }
         return false;

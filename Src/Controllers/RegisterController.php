@@ -9,9 +9,9 @@ use Src\Core\Validator;
 class RegisterController extends Controller
 {
 
-
     public function index()
     {
+
 
         $form = new Form;
         $form
@@ -39,6 +39,12 @@ class RegisterController extends Controller
                 ->setRole('user');
 
             $users->create();
+
+            $_SESSION['register'] = 1;
+        }
+
+        if (isset($_SESSION['user'])) {
+            header('Location: home');
         }
         $this->render(
             'register/index',
