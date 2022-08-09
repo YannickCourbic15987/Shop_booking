@@ -41,11 +41,13 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">title</th>
-                    <th scope="col">description</th>
+
                     <th scope="col">picture</th>
                     <th scope="col">price</th>
                     <th scope="col">release_date</th>
-                    <th scope="col"></th>
+                    <th scope="col">
+                        <a href="adminAddBook" class="text-uppercase text-white text-decoration-none bg-info border border-rounded-1" role="button"> ajouter</a>
+                    </th>
                     <th scope="col"></th>
                     <th scope="col"></th>
 
@@ -60,11 +62,10 @@
                         <td>
                             <?= $book->title ?>
                         </td>
+
                         <td>
-                            <?= $book->description ?>
-                        </td>
-                        <td>
-                            <?= $book->picture ?>
+                            <img src="../tmp/<?= $book->picture ?>" alt="book" width="60px" height="75px">
+
                         </td>
 
                         <td>

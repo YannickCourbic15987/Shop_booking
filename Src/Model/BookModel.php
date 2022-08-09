@@ -2,7 +2,7 @@
 
 namespace App\Src\Model;
 
-use DateTime;
+
 use App\Src\Model\Model;
 
 class BookModel extends Model
@@ -13,6 +13,7 @@ class BookModel extends Model
     protected $title;
     protected $description;
     protected $picture;
+    protected $price;
     protected $release_date;
     public function __construct()
     {
@@ -109,6 +110,24 @@ class BookModel extends Model
     {
         $this->release_date = $release_date;
         // va nous servir de créer les différentes en une seule fois 
+        return $this;
+    }
+
+    /**
+     * Get the value of price
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     */
+    public function setPrice($price): self
+    {
+        $this->price = $price;
+
         return $this;
     }
 }
